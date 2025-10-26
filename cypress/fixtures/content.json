@@ -1,5 +1,5 @@
-    {
-      "mainHeading": "Example Domain",
-      "linkText": "More information...",
-      "linkHref": "https://www.iana.org/domains/example"
-    }
+{
+  "pageTitle": "Example Domain",
+  "mainHeading": "Example Domain",
+  "documentationLink": "https://www.iana.org/domains/example"
+}
