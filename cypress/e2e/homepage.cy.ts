@@ -16,8 +16,8 @@ describe('Example Domain QA Automation Demo', () => {
     cy.visit('/');
 
     // E2E Test 1: Verify Page Title
-    //cy.title().should('eq', content.pageTitle);
-    cy.title().should('eq', 'Intentionally Wrong Title for Artifact Test'); // <-- INTENTIONAL FAILURE POINT
+    cy.title().should('eq', content.pageTitle);
+    //cy.title().should('eq', 'Intentionally Wrong Title for Artifact Test'); // <-- INTENTIONAL FAILURE POINT
 
     // E2E Test 2: Verify Main Heading (h1)
     cy.get('h1')
