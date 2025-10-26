@@ -8,11 +8,6 @@ jobs:
     # Use a clean Ubuntu runner environment
     runs-on: ubuntu-latest
     
-    # Optional: Configure concurrency control if you run many jobs
-    # concurrency:
-    #   cancel-in-progress: true
-    #   group: ${{ github.workflow }}-${{ github.ref }}
-
     steps:
       # 1. Checkout the repository code
       - name: Checkout
@@ -25,12 +20,23 @@ jobs:
           node-version: '20' # Use a recent LTS version
 
       # 3. Cypress Action
-      # This action handles caching, installing dependencies (including Cypress),
+      # This action handles caching, installing dependencies (including Cypress and TypeScript),
       # and running the 'cypress run' command efficiently.
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
         with:
           # Specify the browser to run tests in (e.g., chrome, firefox, edge)
           browser: chrome
-          # Optionally specify a base URL if you were testing a deployed app
-          # but since we test an external site, we skip it.
+          # Since we test an external site, we let Cypress use its default setup.
+          
+      # 4. Upload Artifacts (ONLY runs if the previous steps failed)
+      - name: Upload Artifacts (on failure)
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-execution-artifacts
+          # These paths are standard Cypress outputs for screenshots and videos
+          path: |
+            cypress/screenshots
+            cypress/videos
+            

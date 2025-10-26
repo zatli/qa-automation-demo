@@ -23,7 +23,7 @@ describe('Example Domain QA Automation Demo', () => {
       .should('be.visible')
       .and('have.text', content.mainHeading);
 
-    // E2E Test 3: Verify Documentation Link (The one that was failing due to 'www.')
+    // E2E Test 3: Verify Documentation Link
     cy.get('p > a')
       .should('be.visible')
       .and('have.attr', 'href', content.documentationLink);

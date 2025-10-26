@@ -1,140 +1,57 @@
-QA Automation Demo Project (Cypress E2E \& API)
+QA Automation Demo: Cypress, TypeScript & CI/CD
+[![Cypress CI Status](https://github.com/zatli/qa-automation-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/zatli/qa-automation-demo/actions/workflows/ci.yml)
 
+Project Overview
 
+This project serves as a minimal, professional demonstration of modern QA automation skills, covering essential End-to-End (E2E) testing, API service checks, and continuous integration using Cypress and GitHub Actions.
 
-This repository serves as a minimal, high-quality demonstration of modern QA automation practices, covering End-to-End (E2E) UI testing, HTTP API status checks, and Continuous Integration (CI) using GitHub Actions.
+Goal: To test the stability and core content of https://example.com.
 
+Technology Stack
 
+Testing Framework: Cypress
 
-The project is built to test the public, stable website https://example.com.
-
-
-
-🛠️ Tech Stack
-
-
-
-Test Runner: Cypress
-
-
-
-Language: JavaScript (ES6+)
-
-
-
-Package Manager: npm
-
-
+Language: TypeScript
 
 CI/CD: GitHub Actions
 
+Data: Fixture files (.json)
 
+Prerequisites
 
-📂 Project Structure
+Node.js (LTS version)
 
+Git
 
+How to Run Locally
 
-.
+Clone the repository:
 
-├── .github/workflows
-
-│   └── ci.yml             # GitHub Actions Workflow
-
-├── cypress
-
-│   └── e2e
-
-│       └── homepage.cy.js # Main test suite (E2E and API)
-
-├── cypress.config.js      # Cypress Configuration
-
-├── README.md              # This file
-
-└── package.json           # Dependencies
+git clone [YOUR REPO URL]
+cd qa-automation-demo
 
 
 
+Install dependencies:
 
-
-⚙️ Setup and Installation
-
-
-
-Clone the Repository:
+npm install
 
 
 
-git clone \[your-repo-url]
+Run E2E tests in headless mode (terminal):
 
-cd \[repo-name]
-
-
+npx cypress run
 
 
 
-Install Dependencies:
-
-You only need to install Cypress as a dependency.
-
-
-
-npm install cypress --save-dev
-
-
-
-
-
-▶️ How to Run Tests
-
-
-
-1\. Run Tests in the Headless Terminal (Recommended)
-
-
-
-This is the standard way to execute tests in CI environments and locally for fast runs.
-
-
-
-npx cypress run --spec "cypress/e2e/homepage.cy.js"
-
-
-
-
-
-2\. Run Tests in the Cypress UI
-
-
-
-Use the Cypress Test Runner GUI for developing and debugging tests.
-
-
+Open Cypress Test Runner (to see the browser running the tests):
 
 npx cypress open
 
 
 
+CI/CD Pipeline
 
+The ci.yml workflow automatically runs the tests on every push to the main branch.
 
-Select E2E Testing and choose homepage.cy.js to run the suite.
-
-
-
-🚀 Continuous Integration (CI)
-
-
-
-The project is configured with a basic GitHub Actions workflow (.github/workflows/ci.yml).
-
-
-
-Tests run automatically on every push to the repository (on any branch).
-
-
-
-The job installs dependencies, runs the cypress run command, and outputs the results directly in the Actions tab.
-
-
-
-This demonstrates zero-to-one CI setup for immediate test feedback.
-
+Artifacts: If a test fails, the workflow is configured to upload screenshots and video recordings of the failure as build artifacts, which is a key debugging feature.
