@@ -1,0 +1,36 @@
+name: Cypress CI - E2E and API Tests
+
+# Run workflow on every push and pull request
+on: [push, pull_request]
+
+jobs:
+  cypress-run:
+    # Use a clean Ubuntu runner environment
+    runs-on: ubuntu-latest
+    
+    # Optional: Configure concurrency control if you run many jobs
+    # concurrency:
+    #   cancel-in-progress: true
+    #   group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      # 1. Checkout the repository code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Install Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a recent LTS version
+
+      # 3. Cypress Action
+      # This action handles caching, installing dependencies (including Cypress),
+      # and running the 'cypress run' command efficiently.
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v6
+        with:
+          # Specify the browser to run tests in (e.g., chrome, firefox, edge)
+          browser: chrome
+          # Optionally specify a base URL if you were testing a deployed app
+          # but since we test an external site, we skip it.
