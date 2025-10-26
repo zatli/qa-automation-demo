@@ -3,7 +3,7 @@ import { DocumentationContent } from '../support/types';
 describe('Example Domain QA Automation Demo', () => {
   let content: DocumentationContent;
 
-  // Use a beforeEach to load the fixture data before each test
+  
   beforeEach(() => {
     // Load the JSON data from the fixture file
     cy.fixture('content.json').then((data) => {
