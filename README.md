@@ -1,4 +1,5 @@
 QA Automation Demo: Cypress, TypeScript & CI/CD
+
 [![Cypress CI Status](https://github.com/zatli/qa-automation-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/zatli/qa-automation-demo/actions/workflows/ci.yml)
 
 Project Overview
@@ -27,26 +28,27 @@ How to Run Locally
 
 Clone the repository:
 
-git clone [YOUR REPO URL]
-cd qa-automation-demo
+  git clone https://github.com/zatli/qa-automation-demo
+
+  cd qa-automation-demo
 
 
 
 Install dependencies:
 
-npm install
+  npm install
 
 
 
 Run E2E tests in headless mode (terminal):
 
-npx cypress run
+  npx cypress run
 
 
 
 Open Cypress Test Runner (to see the browser running the tests):
 
-npx cypress open
+  npx cypress open
 
 
 
